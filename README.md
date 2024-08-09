@@ -62,11 +62,11 @@ relied on describing the line as a distance function, and then walking from pixe
 updating the current distance to the line. This is the function in pseudo code, for the down-right, Y-major octant:
 
 ```
-distance = 0
+distance = -majordelta/2
 
 for (count = 0 to majordelta)
 {
-	if (distance < 0)
+	if (distance > 0)
 	{
 		x++
 		distance -= majordelta
@@ -97,7 +97,7 @@ prestep_y = (1 - y0.fraction)
 
 distance = prestep_x * -majordelta + prestep_y * minordelta
 
-if (distance < 0)
+if (distance > 0)
 {
 	x++
 	distance -= majordelta
@@ -107,7 +107,7 @@ putpixel(x.integer, y.integer)
 
 for (count = 1 to majordelta)
 {
-	if (distance < 0)
+	if (distance > 0)
 	{
 		x++
 		distance -= majordelta
